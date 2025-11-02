@@ -1,0 +1,39 @@
+Loading data...
+Training set: (54000, 784)
+Validation set: (6000, 784)
+Test set: (10000, 784)
+Creating model...
+C:\Python313\Lib\site-packages\keras\src\layers\core\input_layer.py:27: UserWarning: Argument `input_shape` is deprecated. Use `shape` instead.
+  warnings.warn(
+Starting training...
+
+Epoch 1/5
+Training: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1688/1688 [00:52<00:00, 32.29it/s]
+Model saved to models/best_model_h1qcwn79
+Train Loss: 0.4995, Train Acc: 0.8179
+Val Loss: 0.3902, Val Acc: 0.8575
+
+Epoch 2/5
+Training: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1688/1688 [00:56<00:00, 29.64it/s]
+Model saved to models/best_model_h1qcwn79
+Train Loss: 0.3714, Train Acc: 0.8645
+Val Loss: 0.3848, Val Acc: 0.8624
+
+Epoch 3/5
+Training: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1688/1688 [00:56<00:00, 29.66it/s]
+Model saved to models/best_model_h1qcwn79
+Train Loss: 0.3335, Train Acc: 0.8759
+Val Loss: 0.3255, Val Acc: 0.8763
+
+Epoch 4/5
+Training: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1688/1688 [01:04<00:00, 26.17it/s]
+Train Loss: 0.3116, Train Acc: 0.8852
+Val Loss: 0.3883, Val Acc: 0.8665
+
+Epoch 5/5
+Training: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1688/1688 [01:22<00:00, 20.35it/s]
+Model saved to models/best_model_h1qcwn79
+Train Loss: 0.2957, Train Acc: 0.8899
+Val Loss: 0.3344, Val Acc: 0.8802
+
+Evaluating on test set...

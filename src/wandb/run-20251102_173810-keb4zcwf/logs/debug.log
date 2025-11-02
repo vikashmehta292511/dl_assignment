@@ -1,0 +1,15 @@
+2025-11-02 17:38:10,938 INFO    MainThread:13844 [wandb_setup.py:_flush():81] Current SDK version is 0.22.3
+2025-11-02 17:38:10,939 INFO    MainThread:13844 [wandb_setup.py:_flush():81] Configure stats pid to 13844
+2025-11-02 17:38:10,939 INFO    MainThread:13844 [wandb_setup.py:_flush():81] Loading settings from C:\Users\DELL\.config\wandb\settings
+2025-11-02 17:38:10,939 INFO    MainThread:13844 [wandb_setup.py:_flush():81] Loading settings from D:\Assignment\dl_assignment\src\wandb\settings
+2025-11-02 17:38:10,939 INFO    MainThread:13844 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2025-11-02 17:38:10,939 INFO    MainThread:13844 [wandb_init.py:setup_run_log_directory():706] Logging user logs to D:\Assignment\dl_assignment\src\wandb\run-20251102_173810-keb4zcwf\logs\debug.log
+2025-11-02 17:38:10,941 INFO    MainThread:13844 [wandb_init.py:setup_run_log_directory():707] Logging internal logs to D:\Assignment\dl_assignment\src\wandb\run-20251102_173810-keb4zcwf\logs\debug-internal.log
+2025-11-02 17:38:10,941 INFO    MainThread:13844 [wandb_init.py:init():833] calling init triggers
+2025-11-02 17:38:10,941 INFO    MainThread:13844 [wandb_init.py:init():838] wandb.init called with sweep_config: {}
+config: {'num_layers': 3, 'hidden_size': 128, 'activation': 'relu', 'weight_init': 'xavier', 'epochs': 5, 'batch_size': 32, 'learning_rate': 0.001, 'optimizer': 'adam', 'weight_decay': 0.0, 'loss': 'cross_entropy', 'dataset': 'fashion_mnist', '_wandb': {}}
+2025-11-02 17:38:10,941 INFO    MainThread:13844 [wandb_init.py:init():881] starting backend
+2025-11-02 17:38:13,507 INFO    MainThread:13844 [wandb_init.py:init():884] sending inform_init request
+2025-11-02 17:38:14,059 INFO    MainThread:13844 [wandb_init.py:init():892] backend started and connected
+2025-11-02 17:38:14,062 INFO    MainThread:13844 [wandb_init.py:init():962] updated telemetry
+2025-11-02 17:38:14,064 INFO    MainThread:13844 [wandb_init.py:init():986] communicating run to backend with 90.0 second timeout

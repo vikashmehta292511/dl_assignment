@@ -1,0 +1,76 @@
+_wandb:
+    value:
+        cli_version: 0.22.3
+        e:
+            ffbn7enux3v90o7b8bjhmxtv2qc2y5kn:
+                args:
+                    - --epochs
+                    - "5"
+                    - --optimizer
+                    - adam
+                    - --batch_size
+                    - "32"
+                codePath: src\train.py
+                codePathLocal: train.py
+                cpu_count: 2
+                cpu_count_logical: 4
+                disk:
+                    /:
+                        total: "26948399104"
+                        used: "3036573696"
+                email: vikashmehta292511@gmail.com
+                executable: C:\Python313\python.exe
+                host: DESKTOP-K4SNSQS
+                memory:
+                    total: "8303452160"
+                os: Windows-11-10.0.26100-SP0
+                program: D:\Assignment\dl_assignment\src\train.py
+                python: CPython 3.13.7
+                root: D:\Assignment\dl_assignment\src
+                startedAt: "2025-11-02T12:51:05.649587Z"
+                writerId: ffbn7enux3v90o7b8bjhmxtv2qc2y5kn
+        m: []
+        python_version: 3.13.7
+        t:
+            "1":
+                - 2
+                - 3
+                - 5
+                - 53
+            "2":
+                - 2
+                - 3
+                - 5
+                - 53
+            "3":
+                - 2
+                - 13
+                - 16
+            "4": 3.13.7
+            "5": 0.22.3
+            "8":
+                - 3
+            "12": 0.22.3
+            "13": windows-amd64
+activation:
+    value: relu
+batch_size:
+    value: 32
+dataset:
+    value: fashion_mnist
+epochs:
+    value: 5
+hidden_size:
+    value: 128
+learning_rate:
+    value: 0.001
+loss:
+    value: cross_entropy
+num_layers:
+    value: 3
+optimizer:
+    value: adam
+weight_decay:
+    value: 0
+weight_init:
+    value: xavier
