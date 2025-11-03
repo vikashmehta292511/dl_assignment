@@ -1,0 +1,26 @@
+2025-11-03 09:07:36,916 INFO    MainThread:7880 [wandb_setup.py:_flush():81] Current SDK version is 0.22.3
+2025-11-03 09:07:36,916 INFO    MainThread:7880 [wandb_setup.py:_flush():81] Configure stats pid to 7880
+2025-11-03 09:07:36,916 INFO    MainThread:7880 [wandb_setup.py:_flush():81] Loading settings from C:\Users\DELL\.config\wandb\settings
+2025-11-03 09:07:36,916 INFO    MainThread:7880 [wandb_setup.py:_flush():81] Loading settings from D:\Assignment\dl_assignment\src\wandb\settings
+2025-11-03 09:07:36,916 INFO    MainThread:7880 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2025-11-03 09:07:36,916 INFO    MainThread:7880 [wandb_init.py:setup_run_log_directory():706] Logging user logs to D:\Assignment\dl_assignment\src\wandb\run-20251103_090736-dx3c9cjr\logs\debug.log
+2025-11-03 09:07:36,916 INFO    MainThread:7880 [wandb_init.py:setup_run_log_directory():707] Logging internal logs to D:\Assignment\dl_assignment\src\wandb\run-20251103_090736-dx3c9cjr\logs\debug-internal.log
+2025-11-03 09:07:36,917 INFO    MainThread:7880 [wandb_init.py:init():833] calling init triggers
+2025-11-03 09:07:36,917 INFO    MainThread:7880 [wandb_init.py:init():838] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-11-03 09:07:36,917 INFO    MainThread:7880 [wandb_init.py:init():881] starting backend
+2025-11-03 09:07:39,163 INFO    MainThread:7880 [wandb_init.py:init():884] sending inform_init request
+2025-11-03 09:07:39,489 INFO    MainThread:7880 [wandb_init.py:init():892] backend started and connected
+2025-11-03 09:07:39,489 INFO    MainThread:7880 [wandb_init.py:init():962] updated telemetry
+2025-11-03 09:07:39,533 INFO    MainThread:7880 [wandb_init.py:init():986] communicating run to backend with 90.0 second timeout
+2025-11-03 09:07:40,468 INFO    MainThread:7880 [wandb_init.py:init():1033] starting run threads in backend
+2025-11-03 09:07:40,792 INFO    MainThread:7880 [wandb_run.py:_console_start():2506] atexit reg
+2025-11-03 09:07:40,792 INFO    MainThread:7880 [wandb_run.py:_redirect():2354] redirect: wrap_raw
+2025-11-03 09:07:40,792 INFO    MainThread:7880 [wandb_run.py:_redirect():2423] Wrapping output streams.
+2025-11-03 09:07:40,792 INFO    MainThread:7880 [wandb_run.py:_redirect():2446] Redirects installed.
+2025-11-03 09:07:40,797 INFO    MainThread:7880 [wandb_init.py:init():1073] run started, returning control to user process
+2025-11-03 09:07:42,564 INFO    MainThread:7880 [wandb_run.py:_finish():2272] finishing run vikashmehta292511-lnct-group-of-college/dl_assignment-src/dx3c9cjr
+2025-11-03 09:07:42,565 INFO    MainThread:7880 [wandb_run.py:_atexit_cleanup():2471] got exitcode: 0
+2025-11-03 09:07:42,565 INFO    MainThread:7880 [wandb_run.py:_restore():2453] restore
+2025-11-03 09:07:42,565 INFO    MainThread:7880 [wandb_run.py:_restore():2459] restore done
+2025-11-03 09:07:45,439 INFO    MainThread:7880 [wandb_run.py:_footer_sync_info():3835] logging synced files

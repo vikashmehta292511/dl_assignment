@@ -1,0 +1,26 @@
+{
+  "os": "Windows-11-10.0.26100-SP0",
+  "python": "CPython 3.13.7",
+  "startedAt": "2025-11-03T03:37:36.913768Z",
+  "program": "<python with no main file>",
+  "git": {
+    "remote": "https://github.com/vikashmehta292511/dl_assignment.git",
+    "commit": "a48d2c0dcd8142072d48e636fd5cd4bfd28893b8"
+  },
+  "email": "vikashmehta292511@gmail.com",
+  "root": "D:\\Assignment\\dl_assignment\\src",
+  "host": "DESKTOP-K4SNSQS",
+  "executable": "C:\\Python313\\python.exe",
+  "cpu_count": 2,
+  "cpu_count_logical": 4,
+  "disk": {
+    "/": {
+      "total": "26948399104",
+      "used": "3074863104"
+    }
+  },
+  "memory": {
+    "total": "8303452160"
+  },
+  "writerId": "djh9ie1ngb9j5ou4b6h74myj1ik8kxho"
+}

@@ -1,0 +1,26 @@
+{
+  "os": "Windows-11-10.0.26100-SP0",
+  "python": "CPython 3.13.7",
+  "startedAt": "2025-11-03T03:27:21.837369Z",
+  "program": "C:\\Python313\\Lib\\_pyrepl\\__main__.py",
+  "git": {
+    "remote": "https://github.com/vikashmehta292511/dl_assignment.git",
+    "commit": "a48d2c0dcd8142072d48e636fd5cd4bfd28893b8"
+  },
+  "email": "vikashmehta292511@gmail.com",
+  "root": "D:\\Assignment\\dl_assignment\\src",
+  "host": "DESKTOP-K4SNSQS",
+  "executable": "C:\\Python313\\python.exe",
+  "cpu_count": 2,
+  "cpu_count_logical": 4,
+  "disk": {
+    "/": {
+      "total": "26948399104",
+      "used": "3074613248"
+    }
+  },
+  "memory": {
+    "total": "8303452160"
+  },
+  "writerId": "6jbhc2qh9i3ciyth0c5m61ogbnt09znh"
+}
