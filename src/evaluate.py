@@ -81,6 +81,7 @@ def evaluate_model(model_path, dataset='fashion_mnist', show_plots=True):
     
     if show_plots:
         print("\nGenerating visualizations...")
+        os.makedirs("plots", exist_ok=True) 
         
         # Confusion matrix
         plot_confusion_matrix(
@@ -109,8 +110,6 @@ def evaluate_model(model_path, dataset='fashion_mnist', show_plots=True):
         'predictions': y_pred_np,
         'true_labels': y_test_np
     }
-
-
 def compare_loss_functions():
     """
     Compare cross-entropy vs MSE loss
@@ -178,6 +177,7 @@ def compare_loss_functions():
     axes[1].grid(True, alpha=0.3)
     
     plt.tight_layout()
+    os.makedirs("plots", exist_ok=True)
     plt.savefig('plots/loss_comparison.png', dpi=300, bbox_inches='tight')
     plt.show()
 
