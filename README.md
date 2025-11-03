@@ -626,7 +626,6 @@ PyYAML>=6.0
 
 [WandB Report URL]
 
-Example: `https://wandb.ai/YOUR_USERNAME/dl_assignment/reports/Deep-Learning-Assignment-1--Vmlldzo...`
 
 ### Report Contents
 
@@ -682,14 +681,6 @@ The complete WandB report includes:
 - Accuracy metrics
 - Insights on dataset difficulty
 
-### Accessing the Report
-
-1. Navigate to https://wandb.ai
-2. Go to Projects → dl_assignment
-3. Click on Reports tab
-4. Select the assignment report
-5. Report is publicly accessible via shared link
-
 ---
 
 
@@ -702,7 +693,7 @@ Python version and library versions specified in requirements.txt ensure consist
 
 ## Known Limitations
 
-1. **Computational Constraints:**  The Wandb report experiments conducted on i3 laptop with 8GB RAM limited sweep size to 20 runs instead of typical 50-100 runs.
+1. **Computational Constraints:**  This Wandb report experiments conducted on i3 laptop with 8GB RAM limited sweep size to 20 runs instead of typical 50-100 runs.
 
 2. **Batch Size Selection:** Larger batch sizes (64) preferred over smaller (16, 32) to optimize CPU training efficiency.
 
@@ -721,6 +712,7 @@ Python version and library versions specified in requirements.txt ensure consist
 3. Batch Normalization: Ioffe, S., & Szegedy, C. (2015). Batch Normalization: Accelerating Deep Network Training.
 
 4. Xavier Initialization: Glorot, X., & Bengio, Y. (2010). Understanding the difficulty of training deep feedforward neural networks.
+
 
 
 
