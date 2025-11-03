@@ -624,7 +624,7 @@ PyYAML>=6.0
 
 ### Report Link
 
-[WandB Report URL]
+[URL]
 
 
 ### Report Contents
@@ -712,6 +712,7 @@ Python version and library versions specified in requirements.txt ensure consist
 3. Batch Normalization: Ioffe, S., & Szegedy, C. (2015). Batch Normalization: Accelerating Deep Network Training.
 
 4. Xavier Initialization: Glorot, X., & Bengio, Y. (2010). Understanding the difficulty of training deep feedforward neural networks.
+
 
 
 
