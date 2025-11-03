@@ -19,7 +19,7 @@ Implementation of a feedforward neural network from scratch for Fashion-MNIST cl
 8. [Results and Analysis](#results-and-analysis)
 9. [Technical Terminology](#technical-terminology)
 10. [Dependencies](#dependencies)
-11. [WandB Report](#wandb-report)
+11. [My WandB Report](#wandb-report)
 
 ---
 
@@ -724,5 +724,6 @@ Python version and library versions specified in requirements.txt ensure consist
 3. Batch Normalization: Ioffe, S., & Szegedy, C. (2015). Batch Normalization: Accelerating Deep Network Training.
 
 4. Xavier Initialization: Glorot, X., & Bengio, Y. (2010). Understanding the difficulty of training deep feedforward neural networks.
+
 
 
