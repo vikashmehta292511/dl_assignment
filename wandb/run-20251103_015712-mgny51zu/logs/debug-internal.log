@@ -1,0 +1,14 @@
+{"time":"2025-11-03T01:57:14.4669708+05:30","level":"INFO","msg":"stream: starting","core version":"0.22.3"}
+{"time":"2025-11-03T01:57:14.9982825+05:30","level":"INFO","msg":"stream: created new stream","id":"mgny51zu"}
+{"time":"2025-11-03T01:57:14.9982825+05:30","level":"INFO","msg":"handler: started","stream_id":"mgny51zu"}
+{"time":"2025-11-03T01:57:15.0017553+05:30","level":"INFO","msg":"stream: started","id":"mgny51zu"}
+{"time":"2025-11-03T01:57:15.0017553+05:30","level":"INFO","msg":"writer: started","stream_id":"mgny51zu"}
+{"time":"2025-11-03T01:57:15.0017553+05:30","level":"INFO","msg":"sender: started","stream_id":"mgny51zu"}
+{"time":"2025-11-03T01:57:15.5705472+05:30","level":"INFO","msg":"flowcontrol: backed up, offloading to disk","recordNumber":37}
+{"time":"2025-11-03T01:57:15.9534301+05:30","level":"INFO","msg":"flowcontrol: unblocked","totalOffloaded":3}
+{"time":"2025-11-03T01:58:41.7969104+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-11-03T01:58:42.1926883+05:30","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-11-03T01:58:42.2061117+05:30","level":"INFO","msg":"stream: closing","id":"mgny51zu"}
+{"time":"2025-11-03T01:58:42.2061117+05:30","level":"INFO","msg":"handler: closed","stream_id":"mgny51zu"}
+{"time":"2025-11-03T01:58:42.2078125+05:30","level":"INFO","msg":"sender: closed","stream_id":"mgny51zu"}
+{"time":"2025-11-03T01:58:42.2078125+05:30","level":"INFO","msg":"stream: closed","id":"mgny51zu"}

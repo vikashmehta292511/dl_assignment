@@ -1,0 +1,12 @@
+2025-11-03 01:53:43,394 INFO    Thread-38 (_run_job):16860 [wandb_init.py:setup_run_log_directory():706] Logging user logs to D:\Assignment\dl_assignment\wandb\run-20251103_015343-cdsb7wlv\logs\debug.log
+2025-11-03 01:53:43,394 INFO    Thread-38 (_run_job):16860 [wandb_init.py:setup_run_log_directory():707] Logging internal logs to D:\Assignment\dl_assignment\wandb\run-20251103_015343-cdsb7wlv\logs\debug-internal.log
+2025-11-03 01:53:43,394 INFO    Thread-38 (_run_job):16860 [wandb_init.py:init():833] calling init triggers
+2025-11-03 01:53:43,395 INFO    Thread-38 (_run_job):16860 [wandb_init.py:init():838] wandb.init called with sweep_config: {'activation': 'tanh', 'batch_size': 32, 'dataset': 'fashion_mnist', 'epochs': 8, 'hidden_size': 128, 'learning_rate': 0.0001, 'loss': 'cross_entropy', 'num_layers': 3, 'optimizer': 'rmsprop', 'weight_decay': 0, 'weight_init': 'xavier'}
+config: {'activation': 'tanh', 'batch_size': 32, 'dataset': 'fashion_mnist', 'epochs': 8, 'hidden_size': 128, 'learning_rate': 0.0001, 'loss': 'cross_entropy', 'num_layers': 3, 'optimizer': 'rmsprop', 'weight_decay': 0, 'weight_init': 'xavier', '_wandb': {}}
+2025-11-03 01:57:05,927 INFO    Thread-38 (_run_job):16860 [wandb_run.py:_finish():2272] finishing run vikashmehta292511-lnct-group-of-college/dl_assignment/cdsb7wlv
+2025-11-03 01:57:05,928 INFO    Thread-38 (_run_job):16860 [wandb_run.py:_atexit_cleanup():2471] got exitcode: 1
+2025-11-03 01:57:05,928 INFO    Thread-38 (_run_job):16860 [wandb_run.py:_restore():2453] restore
+2025-11-03 01:57:05,929 INFO    Thread-38 (_run_job):16860 [wandb_run.py:_restore():2459] restore done
+2025-11-03 01:57:09,951 INFO    Thread-38 (_run_job):16860 [wandb_run.py:_footer_sync_info():3835] logging synced files
+2025-11-03 01:57:11,169 INFO    wandb-AsyncioManager-main:16860 [service_client.py:_forward_responses():80] Reached EOF.
+2025-11-03 01:57:11,169 INFO    wandb-AsyncioManager-main:16860 [mailbox.py:close():137] Closing mailbox, abandoning 1 handles.

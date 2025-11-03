@@ -1,0 +1,126 @@
+
+======================================================================
+Running configuration:
+  activation: tanh
+  batch_size: 32
+  dataset: fashion_mnist
+  epochs: 5
+  hidden_size: 128
+  learning_rate: 0.001
+  loss: cross_entropy
+  num_layers: 3
+  optimizer: momentum
+  weight_decay: 0
+  weight_init: xavier
+======================================================================
+[34m[1mwandb[0m: [33mWARNING[0m Ignoring project 'dl_assignment' when running a sweep.
+[34m[1mwandb[0m: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+Loading data...
+Training set: (54000, 784)
+Validation set: (6000, 784)
+Test set: (10000, 784)
+Creating model...
+Starting training...
+
+Epoch 1/5
+Training: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1688/1688 [00:29<00:00, 56.37it/s]
+Model saved to models/best_model_l7q52k4g
+Train Loss: 0.6796, Train Acc: 0.7700
+Val Loss: 0.4896, Val Acc: 0.8246
+
+Epoch 2/5
+Training: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1688/1688 [00:32<00:00, 52.13it/s]
+Model saved to models/best_model_l7q52k4g
+Train Loss: 0.4626, Train Acc: 0.8352
+Val Loss: 0.4383, Val Acc: 0.8404
+
+Epoch 3/5
+Training: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1688/1688 [00:32<00:00, 52.38it/s]
+Model saved to models/best_model_l7q52k4g
+Train Loss: 0.4239, Train Acc: 0.8483
+Val Loss: 0.4235, Val Acc: 0.8447
+
+Epoch 4/5
+Training:  23%|███████████████████████████▊                                                                                             | 388/1688 [00:07<00:25, 51.53it/s]
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\wandb\agents\pyagent.py", line 297, in _run_job
+    self._function()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Assignment\dl_assignment\run_sweep.py", line 31, in train_sweep
+    train_model(config, project_name=run.project, use_wandb=True)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Assignment\dl_assignment\src\train.py", line 92, in train_model
+    loss, accuracy = model.train_step(
+                     ~~~~~~~~~~~~~~~~^
+        X_batch,
+        ^^^^^^^^
+    ...<2 lines>...
+        loss_type=config.get('loss', 'cross_entropy')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Assignment\dl_assignment\src\model.py", line 191, in train_step
+    optimizer.apply_gradients(zip(gradients, self.model.trainable_variables))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Assignment\dl_assignment\src\model.py", line 267, in apply_gradients
+    self.optimizer.apply_gradients(grads_and_vars)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\keras\src\optimizers\base_optimizer.py", line 462, in apply_gradients
+    self.apply(grads, trainable_variables)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\keras\src\optimizers\base_optimizer.py", line 526, in apply
+    self._backend_apply_gradients(grads, trainable_variables)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\keras\src\optimizers\base_optimizer.py", line 592, in _backend_apply_gradients
+    self._backend_update_step(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        grads, trainable_variables, self.learning_rate
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\keras\src\backend\tensorflow\optimizer.py", line 120, in _backend_update_step
+    tf.__internal__.distribute.interim.maybe_merge_call(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._distributed_tf_update_step,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        learning_rate,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\tensorflow\python\distribute\merge_call_interim.py", line 51, in maybe_merge_call
+    return fn(strategy, *args, **kwargs)
+  File "C:\Python313\Lib\site-packages\keras\src\backend\tensorflow\optimizer.py", line 134, in _distributed_tf_update_step
+    distribution.extended.update(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        var,
+        ^^^^
+    ...<2 lines>...
+        group=False,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Python313\Lib\site-packages\tensorflow\python\distribute\distribute_lib.py", line 3005, in update
+    return self._update(var, fn, args, kwargs, group)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\tensorflow\python\distribute\distribute_lib.py", line 4075, in _update
+    return self._update_non_slot(var, fn, (var,) + tuple(args), kwargs, group)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\tensorflow\python\distribute\distribute_lib.py", line 4081, in _update_non_slot
+    result = fn(*args, **kwargs)
+  File "C:\Python313\Lib\site-packages\tensorflow\python\autograph\impl\api.py", line 596, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Python313\Lib\site-packages\keras\src\backend\tensorflow\optimizer.py", line 131, in apply_grad_to_update_var
+    return self.update_step(grad, var, learning_rate)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\keras\src\optimizers\sgd.py", line 121, in update_step
+    self.assign_add(variable, m)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\keras\src\backend\tensorflow\optimizer.py", line 59, in assign_add
+    value = tf.cast(value, variable.dtype)
+  File "C:\Python313\Lib\site-packages\tensorflow\python\util\traceback_utils.py", line 153, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Python313\Lib\site-packages\keras\src\backend\tensorflow\core.py", line 84, in __tf_tensor__
+    return tf.convert_to_tensor(self.value, dtype=dtype, name=name)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Exception

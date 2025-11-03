@@ -1,0 +1,72 @@
+
+======================================================================
+Running configuration:
+  activation: tanh
+  batch_size: 32
+  dataset: fashion_mnist
+  epochs: 8
+  hidden_size: 64
+  learning_rate: 0.001
+  loss: cross_entropy
+  num_layers: 3
+  optimizer: momentum
+  weight_decay: 0.0005
+  weight_init: xavier
+======================================================================
+[34m[1mwandb[0m: [33mWARNING[0m Ignoring project 'dl_assignment' when running a sweep.
+[34m[1mwandb[0m: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+Loading data...
+Training set: (54000, 784)
+Validation set: (6000, 784)
+Test set: (10000, 784)
+Creating model...
+Starting training...
+
+Epoch 1/8
+Training: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1688/1688 [00:31<00:00, 53.01it/s]
+Model saved to models/best_model_n40czy3x
+Train Loss: 0.8335, Train Acc: 0.7513
+Val Loss: 0.5160, Val Acc: 0.8213
+
+Epoch 2/8
+Training: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1688/1688 [00:36<00:00, 46.27it/s]
+Model saved to models/best_model_n40czy3x
+Train Loss: 0.5522, Train Acc: 0.8327
+Val Loss: 0.4503, Val Acc: 0.8386
+
+Epoch 3/8
+Training: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1688/1688 [00:33<00:00, 50.40it/s]
+Model saved to models/best_model_n40czy3x
+Train Loss: 0.5086, Train Acc: 0.8459
+Val Loss: 0.4358, Val Acc: 0.8454
+
+Epoch 4/8
+Training:  33%|███████████████████████████████████████▉                                                                                 | 558/1688 [00:11<00:22, 50.70it/s]
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\wandb\agents\pyagent.py", line 297, in _run_job
+    self._function()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Assignment\dl_assignment\run_sweep.py", line 31, in train_sweep
+    train_model(config, project_name=run.project, use_wandb=True)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Assignment\dl_assignment\src\train.py", line 92, in train_model
+    loss, accuracy = model.train_step(
+                     ~~~~~~~~~~~~~~~~^
+        X_batch,
+        ^^^^^^^^
+    ...<2 lines>...
+        loss_type=config.get('loss', 'cross_entropy')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Assignment\dl_assignment\src\model.py", line 194, in train_step
+    accuracy = self.compute_accuracy(y_batch, y_pred)
+  File "D:\Assignment\dl_assignment\src\model.py", line 159, in compute_accuracy
+    return tf.reduce_mean(tf.cast(correct, tf.float32))
+                          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\tensorflow\python\util\traceback_utils.py", line 153, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Python313\Lib\site-packages\tensorflow\python\ops\gen_math_ops.py", line 2118, in cast
+    except _core._FallbackException:
+      pass
+Exception

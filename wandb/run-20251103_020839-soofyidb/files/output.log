@@ -1,0 +1,95 @@
+
+======================================================================
+Running configuration:
+  activation: tanh
+  batch_size: 64
+  dataset: fashion_mnist
+  epochs: 8
+  hidden_size: 128
+  learning_rate: 0.0001
+  loss: cross_entropy
+  num_layers: 3
+  optimizer: sgd
+  weight_decay: 0.0005
+  weight_init: xavier
+======================================================================
+[34m[1mwandb[0m: [33mWARNING[0m Ignoring project 'dl_assignment' when running a sweep.
+[34m[1mwandb[0m: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+Loading data...
+Training set: (54000, 784)
+Validation set: (6000, 784)
+Test set: (10000, 784)
+Creating model...
+Starting training...
+
+Epoch 1/8
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 844/844 [00:11<00:00, 71.25it/s]
+Model saved to models/best_model_soofyidb
+Train Loss: 2.5069, Train Acc: 0.1134
+Val Loss: 2.2590, Val Acc: 0.1550
+
+Epoch 2/8
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 844/844 [00:14<00:00, 60.22it/s]
+Model saved to models/best_model_soofyidb
+Train Loss: 2.2797, Train Acc: 0.2498
+Val Loss: 2.0709, Val Acc: 0.3348
+
+Epoch 3/8
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 844/844 [00:13<00:00, 60.56it/s]
+Model saved to models/best_model_soofyidb
+Train Loss: 2.1178, Train Acc: 0.3964
+Val Loss: 1.9232, Val Acc: 0.4466
+
+Epoch 4/8
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 844/844 [00:13<00:00, 62.56it/s]
+Model saved to models/best_model_soofyidb
+Train Loss: 1.9824, Train Acc: 0.4777
+Val Loss: 1.7961, Val Acc: 0.5026
+
+Epoch 5/8
+Training: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 844/844 [00:13<00:00, 62.64it/s]
+Model saved to models/best_model_soofyidb
+Train Loss: 1.8640, Train Acc: 0.5240
+Val Loss: 1.6846, Val Acc: 0.5404
+
+Epoch 6/8
+Training:  71%|██████████████████████████████████████████████████████████████████████████████████████▎                                   | 597/844 [00:09<00:04, 61.12it/s]
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\wandb\agents\pyagent.py", line 297, in _run_job
+    self._function()
+    ~~~~~~~~~~~~~~^^
+  File "D:\Assignment\dl_assignment\run_sweep.py", line 31, in train_sweep
+    train_model(config, project_name=run.project, use_wandb=True)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Assignment\dl_assignment\src\train.py", line 92, in train_model
+    loss, accuracy = model.train_step(
+                     ~~~~~~~~~~~~~~~~^
+        X_batch,
+        ^^^^^^^^
+    ...<2 lines>...
+        loss_type=config.get('loss', 'cross_entropy')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Assignment\dl_assignment\src\model.py", line 183, in train_step
+    l2_loss = tf.add_n([tf.nn.l2_loss(v) for v in self.model.trainable_variables
+                        ~~~~~~~~~~~~~^^^
+  File "C:\Python313\Lib\site-packages\tensorflow\python\ops\gen_nn_ops.py", line 5749, in l2_loss
+    return l2_loss_eager_fallback(
+        t, name=name, ctx=_ctx)
+  File "C:\Python313\Lib\site-packages\tensorflow\python\ops\gen_nn_ops.py", line 5790, in l2_loss_eager_fallback
+    _attr_T, (t,) = _execute.args_to_matching_eager([t], ctx, [_dtypes.half, _dtypes.bfloat16, _dtypes.float32, _dtypes.float64, ])
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\tensorflow\python\eager\execute.py", line 251, in args_to_matching_eager
+    tensor = tensor_conversion_registry.convert(t)
+  File "C:\Python313\Lib\site-packages\tensorflow\python\framework\tensor_conversion_registry.py", line 209, in convert
+    return overload(dtype, name)  #  pylint: disable=not-callable
+  File "C:\Python313\Lib\site-packages\keras\src\backend\tensorflow\core.py", line 84, in __tf_tensor__
+    return tf.convert_to_tensor(self.value, dtype=dtype, name=name)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\tensorflow\python\util\traceback_utils.py", line 153, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Python313\Lib\site-packages\tensorflow\python\ops\gen_resource_variable_ops.py", line 539, in read_variable_op
+    except _core._FallbackException:
+      pass
+Exception

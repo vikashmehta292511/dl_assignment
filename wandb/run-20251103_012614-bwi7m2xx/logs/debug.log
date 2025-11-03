@@ -1,0 +1,32 @@
+2025-11-03 01:26:14,793 INFO    Thread-23 (_run_job):16860 [wandb_setup.py:_flush():81] Current SDK version is 0.22.3
+2025-11-03 01:26:14,793 INFO    Thread-23 (_run_job):16860 [wandb_setup.py:_flush():81] Configure stats pid to 16860
+2025-11-03 01:26:14,794 INFO    Thread-23 (_run_job):16860 [wandb_setup.py:_flush():81] Loading settings from C:\Users\DELL\.config\wandb\settings
+2025-11-03 01:26:14,794 INFO    Thread-23 (_run_job):16860 [wandb_setup.py:_flush():81] Loading settings from D:\Assignment\dl_assignment\wandb\settings
+2025-11-03 01:26:14,794 INFO    Thread-23 (_run_job):16860 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2025-11-03 01:26:14,794 INFO    Thread-23 (_run_job):16860 [wandb_init.py:setup_run_log_directory():706] Logging user logs to D:\Assignment\dl_assignment\wandb\run-20251103_012614-bwi7m2xx\logs\debug.log
+2025-11-03 01:26:14,794 INFO    Thread-23 (_run_job):16860 [wandb_init.py:setup_run_log_directory():707] Logging internal logs to D:\Assignment\dl_assignment\wandb\run-20251103_012614-bwi7m2xx\logs\debug-internal.log
+2025-11-03 01:26:14,794 INFO    Thread-23 (_run_job):16860 [wandb_init.py:init():833] calling init triggers
+2025-11-03 01:26:14,794 INFO    Thread-23 (_run_job):16860 [wandb_init.py:init():838] wandb.init called with sweep_config: {'activation': 'relu', 'batch_size': 32, 'dataset': 'fashion_mnist', 'epochs': 5, 'hidden_size': 128, 'learning_rate': 0.0001, 'loss': 'cross_entropy', 'num_layers': 3, 'optimizer': 'nadam', 'weight_decay': 0, 'weight_init': 'xavier'}
+config: {'_wandb': {}}
+2025-11-03 01:26:14,794 INFO    Thread-23 (_run_job):16860 [wandb_init.py:init():881] starting backend
+2025-11-03 01:26:17,044 INFO    Thread-23 (_run_job):16860 [wandb_init.py:init():884] sending inform_init request
+2025-11-03 01:26:17,049 INFO    Thread-23 (_run_job):16860 [wandb_init.py:init():892] backend started and connected
+2025-11-03 01:26:17,050 INFO    Thread-23 (_run_job):16860 [wandb_run.py:_config_callback():1390] config_cb None None {'activation': 'relu', 'batch_size': 32, 'dataset': 'fashion_mnist', 'epochs': 5, 'hidden_size': 128, 'learning_rate': 0.0001, 'loss': 'cross_entropy', 'num_layers': 3, 'optimizer': 'nadam', 'weight_decay': 0, 'weight_init': 'xavier'}
+2025-11-03 01:26:17,055 INFO    Thread-23 (_run_job):16860 [wandb_init.py:init():962] updated telemetry
+2025-11-03 01:26:17,100 INFO    Thread-23 (_run_job):16860 [wandb_init.py:init():986] communicating run to backend with 90.0 second timeout
+2025-11-03 01:26:17,993 INFO    Thread-23 (_run_job):16860 [wandb_init.py:init():1033] starting run threads in backend
+2025-11-03 01:26:18,273 INFO    Thread-23 (_run_job):16860 [wandb_run.py:_console_start():2506] atexit reg
+2025-11-03 01:26:18,273 INFO    Thread-23 (_run_job):16860 [wandb_run.py:_redirect():2354] redirect: wrap_raw
+2025-11-03 01:26:18,273 INFO    Thread-23 (_run_job):16860 [wandb_run.py:_redirect():2423] Wrapping output streams.
+2025-11-03 01:26:18,273 INFO    Thread-23 (_run_job):16860 [wandb_run.py:_redirect():2446] Redirects installed.
+2025-11-03 01:26:18,274 INFO    Thread-23 (_run_job):16860 [wandb_init.py:init():1073] run started, returning control to user process
+2025-11-03 01:26:18,288 INFO    Thread-23 (_run_job):16860 [wandb_init.py:setup_run_log_directory():706] Logging user logs to D:\Assignment\dl_assignment\wandb\run-20251103_012618-bwi7m2xx\logs\debug.log
+2025-11-03 01:26:18,288 INFO    Thread-23 (_run_job):16860 [wandb_init.py:setup_run_log_directory():707] Logging internal logs to D:\Assignment\dl_assignment\wandb\run-20251103_012618-bwi7m2xx\logs\debug-internal.log
+2025-11-03 01:26:18,288 INFO    Thread-23 (_run_job):16860 [wandb_init.py:init():833] calling init triggers
+2025-11-03 01:26:18,288 INFO    Thread-23 (_run_job):16860 [wandb_init.py:init():838] wandb.init called with sweep_config: {'activation': 'relu', 'batch_size': 32, 'dataset': 'fashion_mnist', 'epochs': 5, 'hidden_size': 128, 'learning_rate': 0.0001, 'loss': 'cross_entropy', 'num_layers': 3, 'optimizer': 'nadam', 'weight_decay': 0, 'weight_init': 'xavier'}
+config: {'activation': 'relu', 'batch_size': 32, 'dataset': 'fashion_mnist', 'epochs': 5, 'hidden_size': 128, 'learning_rate': 0.0001, 'loss': 'cross_entropy', 'num_layers': 3, 'optimizer': 'nadam', 'weight_decay': 0, 'weight_init': 'xavier', '_wandb': {}}
+2025-11-03 01:32:55,908 INFO    Thread-23 (_run_job):16860 [wandb_run.py:_finish():2272] finishing run vikashmehta292511-lnct-group-of-college/dl_assignment/bwi7m2xx
+2025-11-03 01:32:55,909 INFO    Thread-23 (_run_job):16860 [wandb_run.py:_atexit_cleanup():2471] got exitcode: 0
+2025-11-03 01:32:55,910 INFO    Thread-23 (_run_job):16860 [wandb_run.py:_restore():2453] restore
+2025-11-03 01:32:55,910 INFO    Thread-23 (_run_job):16860 [wandb_run.py:_restore():2459] restore done
+2025-11-03 01:32:58,622 INFO    Thread-23 (_run_job):16860 [wandb_run.py:_footer_sync_info():3835] logging synced files

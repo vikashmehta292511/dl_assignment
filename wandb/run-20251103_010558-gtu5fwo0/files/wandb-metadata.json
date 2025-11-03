@@ -1,0 +1,32 @@
+{
+  "os": "Windows-11-10.0.26100-SP0",
+  "python": "CPython 3.13.7",
+  "startedAt": "2025-11-02T19:35:58.110818Z",
+  "args": [
+    "--count",
+    "20"
+  ],
+  "program": "D:\\Assignment\\dl_assignment\\run_sweep.py",
+  "codePath": "run_sweep.py",
+  "codePathLocal": "run_sweep.py",
+  "git": {
+    "remote": "https://github.com/vikashmehta292511/dl_assignment.git",
+    "commit": "b40a659da56fe3397c5f51fd8c46a8dd63107421"
+  },
+  "email": "vikashmehta292511@gmail.com",
+  "root": "D:\\Assignment\\dl_assignment",
+  "host": "DESKTOP-K4SNSQS",
+  "executable": "C:\\Python313\\python.exe",
+  "cpu_count": 2,
+  "cpu_count_logical": 4,
+  "disk": {
+    "/": {
+      "total": "26948399104",
+      "used": "3038240768"
+    }
+  },
+  "memory": {
+    "total": "8303452160"
+  },
+  "writerId": "woriqndiawl323ezhglk62wohpkwr6yh"
+}

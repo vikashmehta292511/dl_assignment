@@ -1,0 +1,75 @@
+_wandb:
+    value:
+        cli_version: 0.22.3
+        e:
+            1aplbejxdjyri494raq7qulof50lt9jt:
+                args:
+                    - --count
+                    - "20"
+                codePath: run_sweep.py
+                codePathLocal: run_sweep.py
+                cpu_count: 2
+                cpu_count_logical: 4
+                disk:
+                    /:
+                        total: "26948399104"
+                        used: "3039911936"
+                email: vikashmehta292511@gmail.com
+                executable: C:\Python313\python.exe
+                git:
+                    commit: b40a659da56fe3397c5f51fd8c46a8dd63107421
+                    remote: https://github.com/vikashmehta292511/dl_assignment.git
+                host: DESKTOP-K4SNSQS
+                memory:
+                    total: "8303452160"
+                os: Windows-11-10.0.26100-SP0
+                program: D:\Assignment\dl_assignment\run_sweep.py
+                python: CPython 3.13.7
+                root: D:\Assignment\dl_assignment
+                startedAt: "2025-11-02T19:45:59.752310Z"
+                writerId: 1aplbejxdjyri494raq7qulof50lt9jt
+        m: []
+        python_version: 3.13.7
+        t:
+            "1":
+                - 2
+                - 3
+                - 5
+                - 53
+            "2":
+                - 2
+                - 3
+                - 5
+                - 53
+            "3":
+                - 2
+                - 14
+                - 24
+            "4": 3.13.7
+            "5": 0.22.3
+            "8":
+                - 3
+            "12": 0.22.3
+            "13": windows-amd64
+activation:
+    value: relu
+batch_size:
+    value: 64
+dataset:
+    value: fashion_mnist
+epochs:
+    value: 8
+hidden_size:
+    value: 128
+learning_rate:
+    value: 0.001
+loss:
+    value: cross_entropy
+num_layers:
+    value: 3
+optimizer:
+    value: momentum
+weight_decay:
+    value: 0
+weight_init:
+    value: xavier

@@ -1,0 +1,14 @@
+{"time":"2025-11-03T02:08:41.6453885+05:30","level":"INFO","msg":"stream: starting","core version":"0.22.3"}
+{"time":"2025-11-03T02:08:42.189067+05:30","level":"INFO","msg":"stream: created new stream","id":"soofyidb"}
+{"time":"2025-11-03T02:08:42.189067+05:30","level":"INFO","msg":"handler: started","stream_id":"soofyidb"}
+{"time":"2025-11-03T02:08:42.1974934+05:30","level":"INFO","msg":"stream: started","id":"soofyidb"}
+{"time":"2025-11-03T02:08:42.1974934+05:30","level":"INFO","msg":"writer: started","stream_id":"soofyidb"}
+{"time":"2025-11-03T02:08:42.1974934+05:30","level":"INFO","msg":"sender: started","stream_id":"soofyidb"}
+{"time":"2025-11-03T02:08:42.7791797+05:30","level":"INFO","msg":"flowcontrol: backed up, offloading to disk","recordNumber":37}
+{"time":"2025-11-03T02:08:43.0762393+05:30","level":"INFO","msg":"flowcontrol: unblocked","totalOffloaded":3}
+{"time":"2025-11-03T02:10:05.6119159+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-11-03T02:10:06.0174745+05:30","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-11-03T02:10:06.0280965+05:30","level":"INFO","msg":"stream: closing","id":"soofyidb"}
+{"time":"2025-11-03T02:10:06.0280965+05:30","level":"INFO","msg":"handler: closed","stream_id":"soofyidb"}
+{"time":"2025-11-03T02:10:06.0280965+05:30","level":"INFO","msg":"sender: closed","stream_id":"soofyidb"}
+{"time":"2025-11-03T02:10:06.0280965+05:30","level":"INFO","msg":"stream: closed","id":"soofyidb"}
