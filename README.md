@@ -705,7 +705,7 @@ Python version and library versions specified in requirements.txt ensure consist
 
 ## Known Limitations
 
-1. **Computational Constraints:** Experiments conducted on i3 laptop with 8GB RAM limited sweep size to 20 runs instead of typical 50-100 runs.
+1. **Computational Constraints:**  The Wandb report experiments conducted on i3 laptop with 8GB RAM limited sweep size to 20 runs instead of typical 50-100 runs.
 
 2. **Batch Size Selection:** Larger batch sizes (64) preferred over smaller (16, 32) to optimize CPU training efficiency.
 
@@ -724,6 +724,7 @@ Python version and library versions specified in requirements.txt ensure consist
 3. Batch Normalization: Ioffe, S., & Szegedy, C. (2015). Batch Normalization: Accelerating Deep Network Training.
 
 4. Xavier Initialization: Glorot, X., & Bengio, Y. (2010). Understanding the difficulty of training deep feedforward neural networks.
+
 
 
 
