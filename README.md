@@ -1,11 +1,9 @@
 # Deep Learning Assignment: Feedforward Neural Network with Backpropagation
 
 Implementation of a feedforward neural network from scratch for Fashion-MNIST classification, demonstrating backpropagation algorithm and comprehensive hyperparameter tuning using Weights & Biases.
-
-**Student Name:** [Your Name]  
-**Roll Number:** [Your Roll Number]  
+   
 **Course:** Deep Learning  
-**Assignment:** Assignment 1 - Backpropagation and Optimization
+**Assignment:** - Backpropagation and Optimization
 
 ---
 
@@ -353,7 +351,7 @@ python train.py --epochs 5 --batch_size 64 --no_wandb
 python evaluate.py --model_path ../models/best_model_XXXXX --dataset fashion_mnist
 ```
 
-Replace `XXXXX` with the actual run ID from training output.
+Replace `XXXXX` with the actual run ID from your training output.
 
 **Outputs:**
 - Test accuracy and loss metrics
@@ -697,23 +695,11 @@ The complete WandB report includes:
 
 ---
 
-## Reproducibility
-
-### Random Seeds
-
-All random operations are seeded for reproducibility:
-```python
-tf.random.set_seed(42)
-np.random.seed(42)
-```
 
 ### Environment
 
 Python version and library versions specified in requirements.txt ensure consistent behavior across different systems.
 
-### Data Splits
-
-Fixed validation split (10% of training data) ensures consistent evaluation across runs.
 
 ---
 
@@ -729,18 +715,6 @@ Fixed validation split (10% of training data) ensures consistent evaluation acro
 
 ---
 
-## Future Improvements
-
-1. Implement data augmentation for improved generalization
-2. Explore dropout regularization
-3. Test batch normalization layers
-4. Implement learning rate scheduling
-5. Experiment with different network architectures
-6. Add ensemble methods
-7. Optimize for GPU training
-
----
-
 ## References
 
 1. Fashion-MNIST Dataset: Xiao, H., Rasul, K., & Vollgraf, R. (2017). Fashion-MNIST: a Novel Image Dataset for Benchmarking Machine Learning Algorithms.
@@ -751,23 +725,3 @@ Fixed validation split (10% of training data) ensures consistent evaluation acro
 
 4. Xavier Initialization: Glorot, X., & Bengio, Y. (2010). Understanding the difficulty of training deep feedforward neural networks.
 
----
-
-## License
-
-This project is submitted as an academic assignment for educational purposes.
-
----
-
-## Contact
-
-For questions or clarifications regarding this implementation:
-
-**Student:** [Your Name]  
-**Email:** [Your Email]  
-**Roll Number:** [Your Roll Number]  
-**GitHub:** https://github.com/YOUR_USERNAME/dl_assignment
-
----
-
-**Last Updated:** November 2025
