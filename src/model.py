@@ -7,6 +7,7 @@ Using TensorFlow's GradientTape to compute gradients and manually implementing t
 import tensorflow as tf
 import numpy as np
 import json
+from typing import List
 
 
 class NeuralNetwork:
@@ -18,7 +19,7 @@ class NeuralNetwork:
     def __init__(
         self,
         input_size: int = 784,
-        hidden_sizes: list[int] = [128, 64],
+        hidden_sizes: List[int] = [128, 64],
         output_size: int = 10,
         activation: str = 'relu',
         weight_init: str = 'xavier',
@@ -61,7 +62,7 @@ class NeuralNetwork:
         }
     
     def _get_activation(self):
-        """Get activation function"""
+        """Choose activation function based on user input"""
         if self.activation_name == 'sigmoid':
             return tf.nn.sigmoid
         elif self.activation_name == 'tanh':
@@ -72,10 +73,12 @@ class NeuralNetwork:
             raise ValueError(f"Unknown activation: {self.activation_name}")
     
     def _get_initializer(self):
-        """Get weight initializer"""
+        """Choose weight initialization method"""
         if self.weight_init == 'xavier':
+            # Xavier initialization works better for deep networks
             return tf.keras.initializers.GlorotUniform()
         else:
+            # Random small weights
             return tf.keras.initializers.RandomNormal(stddev=0.01)
     
     def _build_model(self):
@@ -136,7 +139,10 @@ class NeuralNetwork:
         elif loss_type == 'mse':
             # Apply softmax first for MSE
             y_pred_probs = tf.nn.softmax(y_pred)
-            loss = tf.keras.losses.mean_squared_error(y_true, y_pred_probs)
+            # Use MeanSquaredError class instead
+            mse = tf.keras.losses.MeanSquaredError()
+            loss = mse(y_true, y_pred_probs)
+            return loss
         else:
             raise ValueError(f"Unknown loss type: {loss_type}")
         
@@ -160,38 +166,38 @@ class NeuralNetwork:
     
     def train_step(self, X_batch, y_batch, optimizer, loss_type='cross_entropy'):
         """
-        Single training step with manual backpropagation
+        Single training step - this is where backpropagation happens!
         
-        Args:
-            X_batch: Input batch
-            y_batch: Label batch
-            optimizer: TensorFlow optimizer
-            loss_type: Type of loss function
-            
-        Returns:
-            Tuple of (loss, accuracy)
+        Steps:
+        1. Forward pass through network
+        2. Compute loss
+        3. Compute gradients using backpropagation (automatic differentiation)
+        4. Update weights using optimizer
         """
+        # GradientTape records operations for automatic differentiation
         with tf.GradientTape() as tape:
             # Forward pass
-            y_pred = self.forward(X_batch)
+            predictions = self.forward(X_batch)
             
-            # Compute loss
-            loss = self.compute_loss(y_batch, y_pred, loss_type)
+            # Calculate loss
+            loss = self.compute_loss(y_batch, predictions, loss_type)
             
-            # Add L2 regularization loss if needed
+            # Add L2 regularization to loss if weight_decay > 0
             if self.weight_decay > 0:
+                # L2 penalty on weights (not biases)
                 l2_loss = tf.add_n([tf.nn.l2_loss(v) for v in self.model.trainable_variables 
                                    if 'kernel' in v.name])
                 loss += self.weight_decay * l2_loss
         
-        # Compute gradients (backpropagation)
+        # Compute gradients - THIS IS BACKPROPAGATION!
+        # gradients contains dL/dW for each weight matrix
         gradients = tape.gradient(loss, self.model.trainable_variables)
         
-        # Apply gradients (update weights)
+        # Update weights - each optimizer does this differently
         optimizer.apply_gradients(zip(gradients, self.model.trainable_variables))
         
-        # Compute accuracy
-        accuracy = self.compute_accuracy(y_batch, y_pred)
+        # Calculate accuracy for this batch
+        accuracy = self.compute_accuracy(y_batch, predictions)
         
         return loss, accuracy
     
@@ -227,17 +233,17 @@ class NeuralNetwork:
         print(f"Model saved to {filepath}")
     
     @classmethod
-    def load(cls, filepath: str):
-        """Load model from saved weights and config"""
+    def load(cls, filepath):
+        """Load a saved model"""
         # Load config
         config_path = filepath + '_config.json'
         with open(config_path, 'r') as f:
             config = json.load(f)
         
-        # Create model
+        # Create new model with same architecture
         model = cls(**config)
         
-        # Load weights
+        # Load saved weights
         weights_path = filepath + '.weights.h5'
         model.model.load_weights(weights_path)
         
@@ -245,9 +251,15 @@ class NeuralNetwork:
         return model
 
 
-# Custom Optimizers Implementation
-class CustomSGD:
-    """Stochastic Gradient Descent"""
+# ==================== OPTIMIZER IMPLEMENTATIONS ====================
+# Each optimizer updates weights differently to find minimum loss
+
+class SGD:
+    """
+    Stochastic Gradient Descent - simplest optimizer
+    Just moves in the direction of negative gradient
+    Update rule: W = W - learning_rate * gradient
+    """
     def __init__(self, learning_rate=0.01):
         self.optimizer = tf.keras.optimizers.SGD(learning_rate=learning_rate)
     
@@ -255,8 +267,12 @@ class CustomSGD:
         self.optimizer.apply_gradients(grads_and_vars)
 
 
-class CustomMomentum:
-    """SGD with Momentum"""
+class Momentum:
+    """
+    SGD with Momentum - remembers previous gradients
+    Helps accelerate in relevant direction and dampens oscillations
+    Like a ball rolling downhill - builds up speed
+    """
     def __init__(self, learning_rate=0.01, momentum=0.9):
         self.optimizer = tf.keras.optimizers.SGD(
             learning_rate=learning_rate,
@@ -267,21 +283,28 @@ class CustomMomentum:
         self.optimizer.apply_gradients(grads_and_vars)
 
 
-class CustomNesterov:
-    """Nesterov Accelerated Gradient"""
+class Nesterov:
+    """
+    Nesterov Accelerated Gradient (NAG)
+    Smarter version of momentum - looks ahead before making update
+    """
     def __init__(self, learning_rate=0.01, momentum=0.9):
         self.optimizer = tf.keras.optimizers.SGD(
             learning_rate=learning_rate,
             momentum=momentum,
-            nesterov=True
+            nesterov=True  # This makes it Nesterov
         )
     
     def apply_gradients(self, grads_and_vars):
         self.optimizer.apply_gradients(grads_and_vars)
 
 
-class CustomRMSprop:
-    """RMSprop Optimizer"""
+class RMSprop:
+    """
+    Root Mean Square Propagation
+    Adapts learning rate for each parameter
+    Good for dealing with non-stationary objectives
+    """
     def __init__(self, learning_rate=0.001, rho=0.9):
         self.optimizer = tf.keras.optimizers.RMSprop(
             learning_rate=learning_rate,
@@ -292,8 +315,15 @@ class CustomRMSprop:
         self.optimizer.apply_gradients(grads_and_vars)
 
 
-class CustomAdam:
-    """Adam Optimizer"""
+class Adam:
+    """
+    Adaptive Moment Estimation (Adam)
+    Combines ideas from Momentum and RMSprop
+    Generally the best default choice - works well in most cases!
+    Keeps track of both:
+    - Moving average of gradients (momentum)
+    - Moving average of squared gradients (RMSprop)
+    """
     def __init__(self, learning_rate=0.001, beta1=0.9, beta2=0.999):
         self.optimizer = tf.keras.optimizers.Adam(
             learning_rate=learning_rate,
@@ -305,8 +335,12 @@ class CustomAdam:
         self.optimizer.apply_gradients(grads_and_vars)
 
 
-class CustomNadam:
-    """Nadam Optimizer"""
+class Nadam:
+    """
+    Nesterov + Adam = Nadam
+    Combines Nesterov momentum with Adam
+    Slightly better than Adam in some cases
+    """
     def __init__(self, learning_rate=0.001, beta1=0.9, beta2=0.999):
         self.optimizer = tf.keras.optimizers.Nadam(
             learning_rate=learning_rate,
@@ -318,26 +352,21 @@ class CustomNadam:
         self.optimizer.apply_gradients(grads_and_vars)
 
 
-def get_optimizer(name: str, learning_rate: float = 0.001, **kwargs):
+def get_optimizer(name, learning_rate=0.001, **kwargs):
     """
-    Factory function to get optimizer by name
+    Helper function to get optimizer by name
+    Makes it easy to switch between optimizers
     
-    Args:
-        name: Optimizer name ('sgd', 'momentum', 'nag', 'rmsprop', 'adam', 'nadam')
-        learning_rate: Learning rate
-        **kwargs: Additional optimizer-specific parameters
-        
-    Returns:
-        Optimizer instance
+    Usage: optimizer = get_optimizer('adam', learning_rate=0.001)
     """
     optimizers = {
-        'sgd': CustomSGD,
-        'momentum': CustomMomentum,
-        'nag': CustomNesterov,
-        'nesterov': CustomNesterov,
-        'rmsprop': CustomRMSprop,
-        'adam': CustomAdam,
-        'nadam': CustomNadam
+        'sgd': SGD,
+        'momentum': Momentum,
+        'nag': Nesterov,
+        'nesterov': Nesterov,
+        'rmsprop': RMSprop,
+        'adam': Adam,
+        'nadam': Nadam
     }
     
     name = name.lower()
