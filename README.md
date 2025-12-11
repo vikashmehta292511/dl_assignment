@@ -2,6 +2,8 @@
 
 Implementation of a feedforward neural network from scratch for Fashion-MNIST classification, demonstrating backpropagation algorithm and comprehensive hyperparameter tuning using Weights & Biases.
 
+[wandb report](https://wandb.ai/vikashmehta292511-lnct-group-of-college/dl_assignment-src/reports/Fashion-MNIST-Neural-Network-Backpropagation-Implementation--VmlldzoxNDkyNTMzMA?accessToken=2k1hhg7gylg59f4gezfoptwhrhqaqpoai9dudlvcshoi04o8edn12vga9mztenq4)
+
 ---
 
 ## Table of Contents
@@ -506,6 +508,7 @@ Python version and library versions specified in requirements.txt ensure consist
 3. Batch Normalization: Ioffe, S., & Szegedy, C. (2015). Batch Normalization: Accelerating Deep Network Training.
 
 4. Xavier Initialization: Glorot, X., & Bengio, Y. (2010). Understanding the difficulty of training deep feedforward neural networks.
+
 
 
 
