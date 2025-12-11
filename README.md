@@ -145,7 +145,7 @@ dl_assignment/
 └── .gitignore                   # Git ignore patterns
 ```
 
-### File Descriptions
+### Here is the file descriptions
 
 **src/model.py:**
 Contains the core neural network implementation including:
@@ -192,108 +192,6 @@ Orchestrates hyperparameter sweep by:
 
 ---
 
-## Implementation Details
-
-### Backpropagation Implementation
-
-The backpropagation algorithm is implemented using TensorFlow's automatic differentiation:
-
-```python
-def train_step(self, X_batch, y_batch, optimizer, loss_type='cross_entropy'):
-    with tf.GradientTape() as tape:
-        # Forward pass
-        predictions = self.forward(X_batch)
-        
-        # Compute loss
-        loss = self.compute_loss(y_batch, predictions, loss_type)
-        
-        # Add L2 regularization
-        if self.weight_decay > 0:
-            l2_loss = tf.add_n([tf.nn.l2_loss(v) for v in self.model.trainable_variables 
-                               if 'kernel' in v.name])
-            loss += self.weight_decay * l2_loss
-    
-    # Backpropagation: compute gradients
-    gradients = tape.gradient(loss, self.model.trainable_variables)
-    
-    # Update weights using optimizer
-    optimizer.apply_gradients(zip(gradients, self.model.trainable_variables))
-    
-    return loss, accuracy
-```
-
-**Key Steps:**
-1. Forward pass computes predictions
-2. Loss function measures prediction error
-3. GradientTape records operations for differentiation
-4. gradient() computes partial derivatives via chain rule
-5. Optimizer updates weights using computed gradients
-
-### Optimizer Implementations
-
-**1. Stochastic Gradient Descent (SGD):**
-Basic gradient descent with fixed learning rate.
-```
-θ = θ - η∇L(θ)
-```
-Where θ is parameters, η is learning rate, ∇L is gradient.
-
-**2. Momentum:**
-Accelerates SGD by accumulating gradient history.
-```
-v = βv + ∇L(θ)
-θ = θ - ηv
-```
-Where v is velocity, β is momentum coefficient (typically 0.9).
-
-**3. Nesterov Accelerated Gradient (NAG):**
-Look-ahead version of momentum that evaluates gradient at anticipated future position.
-
-**4. RMSProp:**
-Adapts learning rate for each parameter based on running average of squared gradients.
-```
-E[g²] = βE[g²] + (1-β)g²
-θ = θ - η * g / √(E[g²] + ε)
-```
-
-**5. Adam (Adaptive Moment Estimation):**
-Combines momentum and RMSProp by maintaining running averages of both gradient and squared gradient.
-```
-m = β₁m + (1-β₁)g
-v = β₂v + (1-β₂)g²
-θ = θ - η * m̂ / (√v̂ + ε)
-```
-
-**6. NAdam:**
-Combines Nesterov momentum with Adam's adaptive learning rates.
-
-### Loss Functions
-
-**Cross-Entropy Loss (Primary):**
-Measures divergence between predicted probability distribution and true distribution.
-```
-L = -∑ y_true * log(y_pred)
-```
-Optimal for classification tasks with probabilistic outputs.
-
-**Mean Squared Error (Comparison):**
-Measures squared difference between predictions and targets.
-```
-L = (1/n)∑(y_true - y_pred)²
-```
-Typically used for regression; suboptimal for classification.
-
-### Regularization
-
-**L2 Weight Decay:**
-Adds penalty term to loss function to prevent overfitting:
-```
-L_total = L_data + λ∑w²
-```
-Where λ is regularization strength (weight_decay parameter).
-
----
-
 ## Usage Instructions
 
 ### Training a Single Model
@@ -304,7 +202,7 @@ cd src
 python train.py --epochs 10 --optimizer adam --batch_size 32
 ```
 
-**Advanced Training with All Parameters:**
+**Advanced Training with All Parameters: (Optional) **
 ```bash
 python train.py \
   --num_layers 3 \
@@ -320,37 +218,20 @@ python train.py \
   --dataset fashion_mnist
 ```
 
-**Training Without WandB (Local Testing):**
+**Training Without WandB (u can try it for local testing):**
 ```bash
 python train.py --epochs 5 --batch_size 64 --no_wandb
 ```
 
-### Command-Line Arguments
-
-| Argument | Type | Default | Options | Description |
-|----------|------|---------|---------|-------------|
-| `--num_layers` | int | 3 | Any positive int | Number of hidden layers |
-| `--hidden_size` | int | 128 | Any positive int | Neurons per hidden layer |
-| `--activation` | str | relu | sigmoid, tanh, relu | Activation function |
-| `--weight_init` | str | xavier | random, xavier | Weight initialization method |
-| `--optimizer` | str | adam | sgd, momentum, nag, rmsprop, adam, nadam | Optimization algorithm |
-| `--learning_rate` | float | 0.001 | Any positive float | Learning rate for optimizer |
-| `--batch_size` | int | 32 | Any positive int | Mini-batch size |
-| `--epochs` | int | 10 | Any positive int | Number of training epochs |
-| `--weight_decay` | float | 0.0 | Non-negative float | L2 regularization strength |
-| `--loss` | str | cross_entropy | cross_entropy, mse | Loss function |
-| `--dataset` | str | fashion_mnist | fashion_mnist, mnist | Dataset selection |
-| `--no_wandb` | flag | False | - | Disable WandB logging |
-
-### Evaluating Trained Model
+### Evaluate ur trained Model
 
 ```bash
 python evaluate.py --model_path ../models/best_model_XXXXX --dataset fashion_mnist
 ```
 
-Replace `XXXXX` with the actual run ID from your training output.
+Now replace `XXXXX` with ur actual run ID from your training output.
 
-**Outputs:**
+**Final Outputs With:**
 - Test accuracy and loss metrics
 - Confusion matrix (both count and normalized)
 - Per-class accuracy bar chart
@@ -408,66 +289,6 @@ python run_sweep.py --create_only
 # Run agents (can run multiple in parallel)
 wandb agent YOUR_USERNAME/dl_assignment/SWEEP_ID
 ```
-
-**Parallel Execution:**
-Open multiple terminals and run the agent command in each for faster completion.
-
-### Sweep Strategy
-
-**Bayesian Optimization:**
-- Uses probabilistic model to predict promising configurations
-- Balances exploration (trying new areas) and exploitation (refining good areas)
-- More efficient than random or grid search
-
-**Early Termination (Hyperband):**
-- Stops poorly performing runs after few epochs
-- Saves computational resources
-- Focuses budget on promising configurations
-
----
-
-## Results and Analysis
-
-### Expected Performance
-
-**Fashion-MNIST:**
-- Baseline (SGD, no tuning): 75-80% accuracy
-- Good configuration: 85-88% accuracy
-- Best configuration: 88-90% accuracy
-
-**MNIST:**
-- Good configuration: 96-97% accuracy
-- Best configuration: 97-98% accuracy
-
-### Key Findings
-
-**Best Configuration:**
-- Architecture: 3 hidden layers × 128 neurons
-- Optimizer: Adam (learning_rate=0.001)
-- Activation: ReLU
-- Weight Init: Xavier
-- Batch Size: 64 (optimal for CPU training)
-- Weight Decay: 0.0005
-
-**Important Observations:**
-1. Adam optimizer consistently outperforms SGD-based methods
-2. ReLU activation superior to sigmoid/tanh (avoids vanishing gradients)
-3. Xavier initialization critical for deep networks
-4. Small weight decay improves generalization
-5. Larger batch sizes beneficial for CPU training efficiency
-
-### Confusion Matrix Insights
-
-Common misclassifications occur between visually similar items:
-- Shirt ↔ T-shirt/top
-- Pullover ↔ Coat
-- Sneaker ↔ Ankle boot
-
-Best recognized classes:
-- Trouser (distinct shape)
-- Bag (unique category)
-- Ankle boot (distinctive features)
-
 ---
 
 ## Technical Terminology
@@ -603,21 +424,6 @@ Progress bar library for training loop visualization.
 
 **PyYAML (>=6.0):**
 YAML parser for configuration file handling.
-
-### Complete requirements.txt
-
-```
-numpy>=1.21.0
-pandas>=1.3.0
-tensorflow>=2.10.0
-matplotlib>=3.4.0
-seaborn>=0.11.0
-scikit-learn>=1.0.0
-wandb>=0.15.0
-tqdm>=4.65.0
-PyYAML>=6.0
-```
-
 ---
 
 ## My WandB Report
@@ -702,6 +508,7 @@ Python version and library versions specified in requirements.txt ensure consist
 3. Batch Normalization: Ioffe, S., & Szegedy, C. (2015). Batch Normalization: Accelerating Deep Network Training.
 
 4. Xavier Initialization: Glorot, X., & Bengio, Y. (2010). Understanding the difficulty of training deep feedforward neural networks.
+
 
 
 
